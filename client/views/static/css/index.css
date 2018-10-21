@@ -114,6 +114,10 @@ footer p {
   color: #747577;
 }
 
+#donationDetailsModal label {
+  font-size: 0.8rem;
+}
+
 @media (min-width: 1105px) {
   main {
     background-image: url("../img/top.png");

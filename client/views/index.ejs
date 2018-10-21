@@ -10,10 +10,25 @@
   <link href="https://fonts.googleapis.com/css?family=Grand+Hotel|Pacifico|Work+Sans:300,400|Montserrat:700,800" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
     crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
   <script type="text/javascript">
     $(document).ready(function () {
-
+      function verifyEmail(email) {
+        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+      }
+      $(document).on('keyup', '#email, #amount, #phoneNumber', function () {
+        if (verifyEmail($('#email').val()) && $('#phoneNumber').val().length == 10 && $('#amount').val()) {
+          $('#donationButton').attr('disabled', false);
+        } else {
+          $('#donationButton').attr('disabled', true);
+        }
+      })
     })
   </script>
 </head>
@@ -38,7 +53,8 @@
         </ul>
       </div>
       <div class="col-2 text-center">
-        <button id="donate-button" class="px-4 py-2">D O N A T E</button>
+        <button id="donate-button" class="px-4 py-2" data-toggle="modal" data-target="#donationDetailsModal">D O N A T
+          E</button>
       </div>
     </div>
     <nav class="nav flex-column mobile">
@@ -71,8 +87,9 @@
             secondary and university level.
           </p>
           <p class="py-4">
-            The AOOF is a non-profit organization set up to assist destitute students attain a Secondary Education and
-            a University Degree in Accounting. The folks at AOOF have decades of diverse experience in
+            The AOOF is a non-profit organization set up to assist destitute students to attain a Secondary Education
+            and
+            a University Degree in Accounting. The folks at AOOF have decades of diverse experiences in
             entreprenuership, finance and technology among others.
           </p>
           <p class="py-4">
@@ -100,8 +117,8 @@
           secondary and university level.
         </p>
         <p class="py-4">
-          The AOOF is a non-profit organization set up to assist destitute students attain a Secondary Education and
-          a University Degree in Accounting. The folks at AOOF have decades of diverse experience in
+          The AOOF is a non-profit organization set up to assist destitute students to attain a Secondary Education and
+          a University Degree in Accounting. The folks at AOOF have decades of diverse experiences in
           entreprenuership, finance and technology among others.
         </p>
         <p class="py-4">
@@ -131,12 +148,12 @@
       <div class="col-lg-5 col-md-6 col-sm-6 my-auto">
         <h4>O L U W A T O Y I N &nbsp; A L E S E &nbsp; - &nbsp; M E M B E R</h4>
         <p>
-          Toyin is happily married to Yinka and has been entrepreneur in the textile industry of Nigeria with decades
+          Toyin is happily married to Yinka and is an entrepreneur in the textile industry of Nigeria with decades
           of experience both locally and globally.
         </p>
       </div>
       <div class="col-lg-3 col-md-4 col-sm-4 text-right">
-        <img src="../img/dummy.png" alt="member">
+        <img src="../img/mum.png" alt="member">
       </div>
     </div>
     <div class="row wide-view">
@@ -146,8 +163,9 @@
       <div class="col-lg-5 col-md-6 col-sm-6 my-auto">
         <h4>W U R A O L A &nbsp; A L E S E &nbsp; - &nbsp; S E C R E T A R Y</h4>
         <p>
-          Wura is an Econmics graduate with a great passion for Technology leading to her pursuing a career in the IT
-          industry. She currently works as a Software Engineer for Sankore Investment, Nigeria. Wura has strong belief
+          Wura is an Econmics graduate with a great passion for Technology which led to her pursuing a career in the IT
+          industry. She currently works as a Software Engineer for Sankore Investment, Nigeria. Wura has a strong
+          belief
           that education gives anyone the power to become anything and transform the world.
         </p>
       </div>
@@ -170,13 +188,13 @@
 
     <div class="row my-5 slim-view justify-content-end">
       <div class="col-12">
-        <img src="../img/dad-mobile.png" alt="chairman" class="px-2">
+        <img src="../img/mum-mobile.png" alt="chairman" class="px-2">
       </div>
       <div class="col-12 mt-2">
         <h4 class="px-2">O L U W A T O Y I N &nbsp; A L E S E &nbsp; -</h4>
         <h4 class="px-2">M E M B E R</h4>
         <p class="px-2">
-          Toyin is happily married to Yinka and has been entrepreneur in the textile industry of Nigeria with decades
+          Toyin is happily married to Yinka and is an entrepreneur in the textile industry of Nigeria with decades
           of experience both locally and globally.
         </p>
       </div>
@@ -189,8 +207,9 @@
         <h4 class="px-2">W U R A O L A &nbsp; A L E S E &nbsp; -</h4>
         <h4 class="px-2">S E C R E T A R Y</h4>
         <p class="px-2">
-          Wura is an Econmics graduate with a great passion for Technology leading to her pursuing a career in the IT
-          industry. She currently works as a Software Engineer for Sankore Investment, Nigeria. Wura has strong belief
+          Wura is an Econmics graduate with a great passion for Technology which led to her pursuing a career in the IT
+          industry. She currently works as a Software Engineer for Sankore Investment, Nigeria. Wura has a strong
+          belief
           that education gives anyone the power to become anything and transform the world.
         </p>
       </div>
@@ -318,9 +337,65 @@
 
   <footer>
     <h4 class="ml-5 pt-5">C O N T A C T</h4>
-    <p class="ml-5"> <a href="#">contact@aoofoundation.org</a> </p>
+    <p class="ml-5"> <a href="mailto:aooforg@gmail.com">aooforg@gmail.com</a> </p>
+    <p class="ml-5">(+234) 803 465 7919</p>
     <p class="text-right mr-5 py-4">Made with ❤️ by Wura</p>
   </footer>
+
+  <!-- CUSTOMER DONATION AMOUNT MODAL BEGIN -->
+  <div class="modal fade" id="donationDetailsModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Make donation to AOOF</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Email address <span class="text-danger">*</span></label>
+            <input type="email" id="email" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label>Phone Number <span class="text-danger">*</span></label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">+234</span>
+              </div>
+              <input type="text" onkeypress="return isNumberKey(event)" id="phoneNumber" class="form-control" maxlength="10">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Amount <span class="text-danger">*</span></label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">₦</span>
+              </div>
+              <input type="text" onkeypress="return isNumberKey(event)" id="amount" class="form-control">
+              <div class="input-group-append">
+                <span class="input-group-text">.00</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close" id="donationButton"
+            disabled onclick="payWithPaystack($('#email').val(), $('#amount').val(), $('#phoneNumber').val())">Continue</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- CUSTOMER DONATION AMOUNT MODAL END -->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+  <script src="./app.js"></script>
+
 
 </body>
 
