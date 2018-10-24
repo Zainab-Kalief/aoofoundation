@@ -1,6 +1,6 @@
 function payWithPaystack(email, amount, phoneNumber) {
   var handler = PaystackPop.setup({
-    key: "pk_test_a55f0109eeab8fd7bac960dff5b442a755bc983b", //put your public key here
+    key: "pk_live_581c2678dad6df6a22deb1361d3304498b5dfc12",
     email: email, //put your customer's email here
     amount: amount + "00", //amount the customer is supposed to pay
     metadata: {
@@ -13,16 +13,10 @@ function payWithPaystack(email, amount, phoneNumber) {
       ]
     },
     callback: function(response) {
-      //after the transaction have been completed
-      //make post call  to the server with to verify payment
-      //using transaction reference as post data
-      $.post("verify.php", { reference: response.reference }, function(status) {
-        // if (status == "success")
-        //   //successful transaction
-        //   alert("Transaction was successful");
-        // //transaction failed
-        // else alert(response);
-      });
+      console.log(response);
+      if (response.status == "success") {
+        window.location.reload(true);
+      }
     },
     onClose: function() {
       //when the user close the payment modal
