@@ -1,6 +1,6 @@
 function payWithPaystack(email, amount, phoneNumber) {
   var handler = PaystackPop.setup({
-    key: "xxx",
+    key: "pk_live_581c2678dad6df6a22deb1361d3304498b5dfc12",
     email: email, //put your customer's email here
     amount: amount + "00", //amount the customer is supposed to pay
     metadata: {
