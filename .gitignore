@@ -1,2 +1,5 @@
 node_modules/
 client/vliews/static/app.js
+server.csr
+server.key
+server.pass.key
